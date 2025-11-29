@@ -1,0 +1,5 @@
+add_to_project_include_dirs(${CMAKE_CURRENT_SOURCE_DIR})
+aux_include_directory(. HDRS)
+aux_src_directory(. SRCS)
+add_to_project_headers(${HDRS})
+add_to_project_sources(${SRCS})
