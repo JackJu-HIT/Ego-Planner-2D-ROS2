@@ -14,7 +14,7 @@ ROS2 compile
 微信公众号：机器人规划与控制研究所。
 如若加轨迹优化与运动控制交流群请通过公众号后台联系我。
 
-b站：机器人算法研究所 
+b站：机器人算法研究所 https://www.bilibili.com/video/BV11RUfB8ELb/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3e9e0488974285dd9fea47318bfd814e
 
 如果您使用此2D ego-planner 进行二次开发或学术论文代码等进行开源，请引用此git仓库链接：https://github.com/JackJu-HIT/Ego-Planner-2D-ROS2
 
