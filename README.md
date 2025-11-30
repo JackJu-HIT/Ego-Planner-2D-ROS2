@@ -11,7 +11,7 @@ ROS2 compile
 
 # more info
 
-微信公众号：机器人规划与控制研究所。https://mp.weixin.qq.com/s/zoY2wL8SBw-HycmMgOIrOg
+微信公众号：机器人规划与控制研究所。https://mp.weixin.qq.com/s/tjHMyyEMzsonYaVbrq4WTQ
 如若加轨迹优化与运动控制交流群请通过公众号后台联系我。
 
 b站：机器人算法研究所 https://www.bilibili.com/video/BV11RUfB8ELb/?spm_id_from=333.1387.homepage.video_card.click&vd_source=3e9e0488974285dd9fea47318bfd814e
