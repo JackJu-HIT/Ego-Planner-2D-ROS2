@@ -1,3 +1,7 @@
+2025-12-10
+1.修复gridmap存在的bug。
+2.添加gridmap膨胀后的地图障碍物渲染可视化，rviz监听话题：visual_local_obstacles
+
 # Ego-Planner-2D-ROS2
 0.通过对优化器底层进行修改，使其优化的轨迹坐标维度为2维（x和y），并对grid map进行重写，使其真正适配地面2D移动机器人。
 1.项目地址： https://github.com/JackJu-HIT/Ego-Planner-2D-ROS2
