@@ -27,6 +27,9 @@ void GridMap2D::setCurPose(double x,double y)
     map_size_.x() = grid_cols;
     map_size_.y() = grid_rows;
 
+    grid_cols_ = grid_cols;
+    grid_rows_ = grid_rows;
+
     // 3. 设置地图原点（世界坐标）：让地图中心对齐世界坐标原点
     origin_.x() = x -static_cast<double>(world_size_.x()) / 2.0;  // 世界x范围：[origin.x(), origin.x()+world_size.x()]
     origin_.y() = y -static_cast<double>(world_size_.y()) / 2.0;  // 世界y范围：[origin.y(), origin.y()+world_size.y()]
@@ -95,6 +98,37 @@ bool GridMap2D::isObstacle(const Eigen::Vector2d& world_pos) const {
     return is_obs;
 }
 
+// 获取障碍物点云并转化为世界坐标
+std::vector<Eigen::Vector2d> GridMap2D::getObstaclePointCloud(bool return_inflated_map) const {
+    std::vector<Eigen::Vector2d> point_cloud;
+
+    // 预估一下大小以减少内存重分配（可选优化，假设10%是障碍物）
+    // point_cloud.reserve(map_size_.x() * map_size_.y() * 0.1);
+
+    // 遍历整个地图
+    for (int row = 0; row < map_size_.y(); ++row) {
+        for (int col = 0; col < map_size_.x(); ++col) {
+            
+            // 根据参数决定检查 膨胀网格 还是 原始网格
+            bool is_obs = return_inflated_map ? grid_[row][col] : original_grid_[row][col];
+
+            if (is_obs) {
+                // 将栅格索引转换为世界坐标
+                // 逻辑与 gridToWorld 保持一致：原点 + 索引 * 分辨率
+                double world_x = origin_.x() + col * resolution_;
+                double world_y = origin_.y() + row * resolution_;
+
+                point_cloud.emplace_back(world_x, world_y);
+            }
+        }
+    }
+
+    // std::cout << "[getObstaclePointCloud] 生成点云数量：" << point_cloud.size() 
+    //           << " (模式：" << (return_inflated_map ? "膨胀后" : "原始") << ")" << std::endl;
+
+    return point_cloud;
+}
+
 // 新增接口：检查点是否处于【膨胀后的障碍物区域】（原始障碍物+膨胀区）
 bool GridMap2D::getInflateOccupancy(const Eigen::Vector2d& world_pos) const {
     // 1. 世界坐标→栅格索引
@@ -102,7 +136,7 @@ bool GridMap2D::getInflateOccupancy(const Eigen::Vector2d& world_pos) const {
 
     // 2. 超出地图范围视为占用（膨胀区延伸到地图边界外，避免路径超出地图）
     if (!isIndexValid(grid_index)) {
-        // std::cout << "[getInflateOccupancy] 点（" << world_pos.x() << "," << world_pos.y() << "）超出地图范围，视为膨胀占用" << std::endl;
+        std::cout << "[getInflateOccupancy] 点（" << world_pos.x() << "," << world_pos.y() << "）超出地图范围，视为膨胀占用" << std::endl;
         return true;
     }
 

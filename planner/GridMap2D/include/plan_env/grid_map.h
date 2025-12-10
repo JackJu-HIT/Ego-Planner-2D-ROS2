@@ -8,6 +8,7 @@
 #include <vector>
 #include <Eigen/Dense>
 #include <memory>
+#include <iostream>
 
 // 二维栅格地图类（与A*算法配套）
 class GridMap2D {
@@ -19,6 +20,10 @@ private:
     Eigen::Vector2d origin_;                        // 地图原点（世界坐标，栅格(0,0)的中心）
     double inflate_radius_;
     Eigen::Vector2i world_size_;
+    int grid_rows_;
+    int grid_cols_;
+    
+
 
 public:
     /**
@@ -31,6 +36,27 @@ public:
 
 
     void setCurPose(double x,double y);
+
+    // void resetMap()
+    // {
+    //     original_grid_.resize(grid_rows_, std::vector<bool>(grid_cols_, false));  // 存储原始障碍物
+    //     grid_.resize(grid_rows_, std::vector<bool>(grid_cols_, false));          // 存储原始+膨胀障碍物
+    // }
+    void resetMap()
+    {
+        // 只有在地图已初始化的情况下才重置
+        if (grid_rows_ > 0 && grid_cols_ > 0) {
+            for (auto& row : original_grid_) {
+                std::fill(row.begin(), row.end(), false);
+            }
+            for (auto& row : grid_) {
+                std::fill(row.begin(), row.end(), false);
+            }
+            std::cout << "[resetMap] 所有栅格已重置为自由空间。" << std::endl;
+        } else {
+            std::cout << "[resetMap] 警告：地图尚未初始化，无法重置。" << std::endl;
+        }
+    }
 
     /**
      * @brief 设置栅格障碍物状态
@@ -75,6 +101,14 @@ public:
      * @brief 检查索引是否在地图范围内
      */
     bool isIndexValid(const Eigen::Vector2i& index) const;
+
+
+    /**
+     * @brief 获取障碍物点云（世界坐标系）
+     * @param return_inflated_map true: 返回膨胀后的障碍物; false: 仅返回原始障碍物
+     * @return std::vector<Eigen::Vector2d> 包含所有障碍物中心点的世界坐标列表
+     */
+    std::vector<Eigen::Vector2d> getObstaclePointCloud(bool return_inflated_map = true) const;
 
     // Getter
     double resolution() const;

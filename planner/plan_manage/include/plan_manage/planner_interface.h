@@ -59,7 +59,7 @@ namespace  ego_planner
                             double &time_inc);
 
             bool refineTrajAlgo(UniformBspline &traj, vector<Eigen::Vector3d> &start_end_derivative, double ratio, double &ts, Eigen::MatrixXd &optimal_control_points);
-
+   
             
         private:
 
@@ -88,6 +88,8 @@ namespace  ego_planner
             void makePlan();
 
             void getLocalPlanTrajResults(std::vector<PathPoint> &plan_traj_results);  
+
+            void getObstacles(std::vector<ObstacleInfo> &obstacle);
 
             void getTraj();
 

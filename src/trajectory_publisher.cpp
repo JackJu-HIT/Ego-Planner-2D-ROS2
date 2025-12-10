@@ -20,6 +20,7 @@ TrajectoryAndObstaclesPublisher::TrajectoryAndObstaclesPublisher()
     a_star_path_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("trajectories", 10);
     local_traj_pub_ = this->create_publisher<nav_msgs::msg::Path>("visual_local_trajectory", 10);
     obs_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("visual_obstacles", 10);
+    obs_local_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("visual_local_obstacles", 10);
 
     // 2. 创建订阅者（接收RViz下发的数据）
     // 全局路径输入方式1：直接发布Path消息
@@ -340,6 +341,7 @@ void TrajectoryAndObstaclesPublisher::publish_and_plan()
     publish_planned_trajectory();
     publish_obstacles();
     publish_a_star_path();
+    publish_local_obstacles();
 }
 
 // 发布可视化全局路径
@@ -494,6 +496,46 @@ void TrajectoryAndObstaclesPublisher::publish_obstacles()
     }
 
     obs_pub_->publish(visual_obs);
+}
+
+void TrajectoryAndObstaclesPublisher::publish_local_obstacles()
+{
+    std::vector<ObstacleInfo> obstacles;
+    ego_planner_->getObstacles(obstacles);
+
+    if (obstacles.empty()) return;
+
+    sensor_msgs::msg::PointCloud2 visual_obs;
+    visual_obs.header.stamp = this->now();
+    visual_obs.header.frame_id = "map";
+
+    // 正确设置点云大小
+    visual_obs.height = 1;
+    visual_obs.width = obstacles.size();
+    visual_obs.is_dense = true;
+
+    // 为点云分配字段
+    sensor_msgs::PointCloud2Modifier modifier(visual_obs);
+    modifier.setPointCloud2FieldsByString(1, "xyz");
+    modifier.resize(obstacles.size());   // 关键！分配空间
+
+    // 创建迭代器
+    sensor_msgs::PointCloud2Iterator<float> iter_x(visual_obs, "x");
+    sensor_msgs::PointCloud2Iterator<float> iter_y(visual_obs, "y");
+    sensor_msgs::PointCloud2Iterator<float> iter_z(visual_obs, "z");
+
+    for (const auto& obs : obstacles)
+    {
+        *iter_x = static_cast<float>(obs.x);
+        *iter_y = static_cast<float>(obs.y);
+        *iter_z = 0.0f;
+
+        ++iter_x;
+        ++iter_y;
+        ++iter_z;
+    }
+
+    obs_local_pub_->publish(visual_obs);
 }
 
 // 计算两点之间的欧氏距离（单位：米）

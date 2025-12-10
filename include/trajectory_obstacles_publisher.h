@@ -70,6 +70,8 @@ private:
     void publish_planned_trajectory();
     void publish_obstacles();
     void publish_a_star_path();
+    void publish_local_obstacles();
+
     // 辅助函数
     void generate_straight_path(const geometry_msgs::msg::PoseStamped& start, 
                                const geometry_msgs::msg::PoseStamped& goal);
@@ -86,6 +88,8 @@ private:
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr a_star_path_pub_;
     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr local_traj_pub_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr obs_pub_;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr obs_local_pub_;
+
     
     rclcpp::Subscription<nav_msgs::msg::Path>::SharedPtr rviz_global_path_sub_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr goal_pose_sub_;
@@ -123,7 +127,7 @@ private:
     double map_y_size_ = 50.0;
     double map_z_size_ = 10.0;
     Eigen::Vector3d map_origin_ = Eigen::Vector3d(0.0, 0.0, 0.0);
-    double map_inflate_value_ = 0.0;
+    double map_inflate_value_ = 1.0;
 
     double theta_ = 0.0;
 };

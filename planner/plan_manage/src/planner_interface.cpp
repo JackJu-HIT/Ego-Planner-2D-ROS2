@@ -84,6 +84,28 @@ namespace ego_planner
         grid_map_->setCurPose(cur_pose.x,cur_pose.y); // only once
     }
 
+    void PlannerInterface::getObstacles(std::vector<ObstacleInfo> &obstacle)
+    {
+        std::vector<Eigen::Vector2d> inflated_cloud = grid_map_->getObstaclePointCloud();
+
+        for (const auto& point : inflated_cloud)
+        {
+            ObstacleInfo temp;
+            temp.x = static_cast<float>(point.x()); // 解析 x
+            temp.y = static_cast<float>(point.y()); // 解析 y
+            obstacle.push_back(temp);
+        }
+
+
+
+        //         // 1. 获取膨胀后的障碍物点云（默认）
+        // std::vector<Eigen::Vector2d> inflated_cloud = grid_map.getObstaclePointCloud();
+
+        // // 2. 获取原始障碍物点云
+        // std::vector<Eigen::Vector2d> raw_cloud = grid_map.getObstaclePointCloud(false);
+    }
+
+
     void PlannerInterface::makePlan()
     {
         std::cout << "开始规划..." << std::endl;
@@ -205,7 +227,7 @@ namespace ego_planner
         {
             printf("\033[34mThis refined trajectory hits obstacles. It doesn't matter if appeares occasionally. But if continously appearing, Increase parameter \"lambda_fitness\".\n\033[0m");
             continous_failures_count_++;
-            return false;
+            // return false;
         }
     
         updateTrajInfo(pos);
