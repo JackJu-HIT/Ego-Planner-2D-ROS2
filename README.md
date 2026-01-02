@@ -49,7 +49,7 @@
 
 ### 1. 编译项目
 ```bash
-colcon build --symlink-install --packages-select motion_plan
+colcon build
 source install/setup.bash
 ```
 
