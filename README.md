@@ -56,7 +56,7 @@ source install/setup.bash
 ### 2. 运行步骤
 1.  **启动规划节点**：
     ```bash
-    ros2 run motion_plan motion_plan
+    ros2 run ego_planner motion_plan
     ```
 2.  **启动可视化界面**：
     ```bash
