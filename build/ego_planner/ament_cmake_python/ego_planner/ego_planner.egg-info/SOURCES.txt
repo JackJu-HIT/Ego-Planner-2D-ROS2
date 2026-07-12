@@ -1,6 +1,0 @@
-setup.py
-ego_planner/__init__.py
-ego_planner.egg-info/PKG-INFO
-ego_planner.egg-info/SOURCES.txt
-ego_planner.egg-info/dependency_links.txt
-ego_planner.egg-info/top_level.txt

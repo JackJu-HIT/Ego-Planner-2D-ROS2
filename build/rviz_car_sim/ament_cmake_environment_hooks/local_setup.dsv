@@ -1,4 +1,0 @@
-source;share/rviz_car_sim/environment/ament_prefix_path.sh
-source;share/rviz_car_sim/environment/library_path.sh
-source;share/rviz_car_sim/environment/path.sh
-source;share/rviz_car_sim/environment/pythonpath.sh

@@ -1,6 +1,0 @@
-setup.py
-rviz_car_sim/__init__.py
-rviz_car_sim.egg-info/PKG-INFO
-rviz_car_sim.egg-info/SOURCES.txt
-rviz_car_sim.egg-info/dependency_links.txt
-rviz_car_sim.egg-info/top_level.txt

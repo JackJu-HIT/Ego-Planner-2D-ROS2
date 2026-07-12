@@ -1,6 +1,0 @@
-{
-  "package_name": "rviz_car_sim",
-  "non_idl_tuples": [
-    "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/rviz_car_sim:msg/CurrentPose.msg"
-  ]
-}

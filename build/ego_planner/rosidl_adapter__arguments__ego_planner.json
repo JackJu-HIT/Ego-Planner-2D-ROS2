@@ -1,6 +1,0 @@
-{
-  "package_name": "ego_planner",
-  "non_idl_tuples": [
-    "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2:msg/CurrentPose.msg"
-  ]
-}

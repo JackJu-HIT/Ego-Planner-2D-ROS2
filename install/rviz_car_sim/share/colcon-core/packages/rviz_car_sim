@@ -1,1 +1,0 @@
-ego_planner:geometry_msgs:launch:launch_ros:nav_msgs:rclcpp:rviz2:sensor_msgs:std_msgs:tf2:tf2_geometry_msgs:tf2_ros:visualization_msgs
