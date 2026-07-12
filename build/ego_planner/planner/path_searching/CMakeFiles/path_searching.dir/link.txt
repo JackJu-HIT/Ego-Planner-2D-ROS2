@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpath_searching.a CMakeFiles/path_searching.dir/src/dyn_a_star.cpp.o
+/usr/bin/ranlib libpath_searching.a

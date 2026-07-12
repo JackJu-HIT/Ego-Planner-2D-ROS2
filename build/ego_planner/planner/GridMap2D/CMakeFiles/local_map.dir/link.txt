@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblocal_map.a CMakeFiles/local_map.dir/src/grid_map.cpp.o
+/usr/bin/ranlib liblocal_map.a

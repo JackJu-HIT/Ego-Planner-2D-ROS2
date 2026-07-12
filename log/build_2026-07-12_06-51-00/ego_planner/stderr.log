@@ -1,0 +1,45 @@
+[0mstatusego_planner[0m
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::BsplineOptimizer::combineCostRebound(const double*, double*, double&, int)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:1044:62:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kf_turn[m[K’ [[01;35m[K-Wunused-variable[m[K]
+ 1044 |   double f_smoothness = 0, f_distance = 0, f_feasibility = 0,[01;35m[Kf_turn[m[K = 0,f_kappa = 0;
+      |                                                              [01;35m[K^~~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:1044:73:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kf_kappa[m[K’ [[01;35m[K-Wunused-variable[m[K]
+ 1044 |   double f_smoothness = 0, f_distance = 0, f_feasibility = 0,f_turn = 0,[01;35m[Kf_kappa[m[K = 0;
+      |                                                                         [01;35m[K^~~~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:[m[K In member function ‘[01m[Kstd::vector<std::vector<Eigen::Matrix<double, 2, 1> > > ego_planner::BsplineOptimizer::initControlPoints(Eigen::MatrixXd&, bool)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:50:16:[m[K [01;35m[Kwarning: [m[K‘[01m[Kout_id[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   50 |     int in_id, [01;35m[Kout_id[m[K;
+      |                [01;35m[K^~~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:50:9:[m[K [01;35m[Kwarning: [m[K‘[01m[Kin_id[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+   50 |     int [01;35m[Kin_id[m[K, out_id;
+      |         [01;35m[K^~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::UniformBspline::getMeanAndMaxVel(double&, double&)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:334:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktmp[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+  334 |     for (double t = tm; [01;35m[Kt <= tmp[m[K; t += 0.01)
+      |                         [01;35m[K~~^~~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:334:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktm[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::UniformBspline::getMeanAndMaxAcc(double&, double&)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:360:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktmp[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+  360 |     for (double t = tm; [01;35m[Kt <= tmp[m[K; t += 0.01)
+      |                         [01;35m[K~~^~~~~~[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:360:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktm[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+In file included from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/plan_manage/include/plan_manage/planner_interface.h:16[m[K,
+                 from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:1[m[K:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:[m[K In function ‘[01m[Kstd::ostream& ego_planner::operator<<(std::ostream&, const ego_planner::Bspline_<ContainerAllocator>&)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:88:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+   88 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::PlannerInterface::makePlan()[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:184:52:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 2 has type ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >::rep[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K-Wformat=[m[K]
+  184 |         printf("MotionPlanner Total Running Time: [01;35m[K%d[m[K  ms \n", [32m[Kelapsed.count()[m[K);
+      |                                                   [01;35m[K~^[m[K          [32m[K~~~~~~~~~~~~~~~[m[K
+      |                                                    [01;35m[K|[m[K                       [32m[K|[m[K
+      |                                                    [01;35m[Kint[m[K                     [32m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >::rep {aka long int}[m[K
+      |                                                   [32m[K%ld[m[K
+In file included from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/plan_manage/include/plan_manage/planner_interface.h:16[m[K,
+                 from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/include/trajectory_obstacles_publisher.h:46[m[K,
+                 from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/src/trajectory_publisher.cpp:6[m[K:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:[m[K In function ‘[01m[Kstd::ostream& ego_planner::operator<<(std::ostream&, const ego_planner::Bspline_<ContainerAllocator>&)[m[K’:
+[01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:88:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+   88 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

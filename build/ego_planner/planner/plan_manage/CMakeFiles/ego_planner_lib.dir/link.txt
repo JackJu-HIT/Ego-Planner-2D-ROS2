@@ -1,0 +1,2 @@
+/usr/bin/ar qc libego_planner_lib.a CMakeFiles/ego_planner_lib.dir/src/planner_interface.cpp.o
+/usr/bin/ranlib libego_planner_lib.a

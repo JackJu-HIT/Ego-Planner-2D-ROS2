@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rviz_car_sim__rs",
+		"source" : "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/rviz_car_sim/rviz_car_sim__rs"
+	}
+}

@@ -1,0 +1,321 @@
+[0.006s] Invoking command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2 -DCMAKE_INSTALL_PREFIX=/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner
+[0.039s] -- The C compiler identification is GNU 11.4.0
+[0.066s] -- The CXX compiler identification is GNU 11.4.0
+[0.070s] -- Detecting C compiler ABI info
+[0.106s] -- Detecting C compiler ABI info - done
+[0.109s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.109s] -- Detecting C compile features
+[0.109s] -- Detecting C compile features - done
+[0.110s] -- Detecting CXX compiler ABI info
+[0.151s] -- Detecting CXX compiler ABI info - done
+[0.154s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.154s] -- Detecting CXX compile features
+[0.154s] -- Detecting CXX compile features - done
+[0.155s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.226s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.266s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.284s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.285s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.287s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.292s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.299s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.316s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.318s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.367s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.379s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.397s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.401s] -- Looking for pthread.h
+[0.441s] -- Looking for pthread.h - found
+[0.441s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.483s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.483s] -- Found Threads: TRUE  
+[0.504s] -- Found nav_msgs: 4.9.1 (/opt/ros/humble/share/nav_msgs/cmake)
+[0.517s] -- Found tf2: 0.25.20 (/opt/ros/humble/share/tf2/cmake)
+[0.521s] -- Found tf2_ros: 0.25.20 (/opt/ros/humble/share/tf2_ros/cmake)
+[0.559s] -- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.567s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0")  
+[0.567s] -- Found visualization_msgs: 4.9.1 (/opt/ros/humble/share/visualization_msgs/cmake)
+[0.580s] -- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.585s] [0mstatusego_planner[0m
+[0.585s] -- 包根目录：/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2
+[0.585s] -- 检查msg文件：/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/msg/CurrentPose.msg
+[0.585s] -- ✅ msg文件存在！
+[0.706s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.866s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.932s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.943s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[0.943s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.954s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[0.954s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.954s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.954s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.965s] -- Found PythonExtra: .so  
+[1.020s] -- Configuring done
+[1.038s] -- Generating done
+[1.045s] -- Build files have been written to: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner
+[1.053s] Invoked command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2 -DCMAKE_INSTALL_PREFIX=/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner
+[1.053s] Invoking command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner -- -j20 -l20
+[1.078s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.082s] [  4%] [34m[1mGenerating Rust code for ROS interfaces[0m
+[1.084s] [  9%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.084s] [  9%] [32mBuilding CXX object planner/bspline_opt/CMakeFiles/bspline_opt.dir/src/gradient_descent_optimizer.cpp.o[0m
+[1.084s] [ 11%] [32mBuilding CXX object planner/bspline_opt/CMakeFiles/bspline_opt.dir/src/uniform_bspline.cpp.o[0m
+[1.084s] [ 13%] [32mBuilding CXX object planner/GridMap2D/CMakeFiles/local_map.dir/src/grid_map.cpp.o[0m
+[1.084s] [ 15%] [32mBuilding CXX object planner/bspline_opt/CMakeFiles/bspline_opt.dir/src/bspline_optimizer.cpp.o[0m
+[1.084s] [ 18%] [32mBuilding CXX object planner/path_searching/CMakeFiles/path_searching.dir/src/dyn_a_star.cpp.o[0m
+[1.088s] [ 18%] Built target ament_cmake_python_copy_ego_planner
+[1.180s] running egg_info
+[1.180s] creating ego_planner.egg-info
+[1.180s] writing ego_planner.egg-info/PKG-INFO
+[1.180s] writing dependency_links to ego_planner.egg-info/dependency_links.txt
+[1.180s] writing top-level names to ego_planner.egg-info/top_level.txt
+[1.180s] writing manifest file 'ego_planner.egg-info/SOURCES.txt'
+[1.181s] reading manifest file 'ego_planner.egg-info/SOURCES.txt'
+[1.182s] [ 18%] Built target ego_planner__rs
+[1.182s] writing manifest file 'ego_planner.egg-info/SOURCES.txt'
+[1.182s] [ 20%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_generator_c.dir/rosidl_generator_c/ego_planner/msg/detail/current_pose__functions.c.o[0m
+[1.195s] [ 20%] Built target ament_cmake_python_build_ego_planner_egg
+[1.207s] [ 20%] Built target ego_planner__cpp
+[1.212s] [ 22%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.212s] [ 25%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.213s] [ 27%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.226s] [ 29%] [32m[1mLinking C shared library libego_planner__rosidl_generator_c.so[0m
+[1.248s] [ 29%] Built target ego_planner__rosidl_generator_c
+[1.254s] [ 31%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.254s] [ 36%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.254s] [ 36%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.310s] [ 38%] [32mBuilding CXX object CMakeFiles/ego_planner__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ego_planner/msg/detail/current_pose__type_support.cpp.o[0m
+[1.315s] [ 40%] [32mBuilding CXX object CMakeFiles/ego_planner__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ego_planner/msg/detail/dds_fastrtps/current_pose__type_support.cpp.o[0m
+[1.328s] [ 43%] [32mBuilding CXX object CMakeFiles/ego_planner__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ego_planner/msg/current_pose__type_support.cpp.o[0m
+[1.353s] [ 45%] [32mBuilding CXX object CMakeFiles/ego_planner__rosidl_typesupport_c.dir/rosidl_typesupport_c/ego_planner/msg/current_pose__type_support.cpp.o[0m
+[1.358s] [ 47%] [32mBuilding CXX object CMakeFiles/ego_planner__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ego_planner/msg/detail/current_pose__type_support_c.cpp.o[0m
+[1.372s] [ 50%] [32m[1mLinking CXX shared library libego_planner__rosidl_typesupport_c.so[0m
+[1.372s] [ 52%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ego_planner/msg/detail/current_pose__type_support.c.o[0m
+[1.395s] [ 54%] [32m[1mLinking C shared library libego_planner__rosidl_typesupport_introspection_c.so[0m
+[1.395s] [ 54%] Built target ego_planner__rosidl_typesupport_c
+[1.414s] [ 54%] Built target ego_planner__rosidl_typesupport_introspection_c
+[1.474s] [ 56%] [32m[1mLinking CXX shared library libego_planner__rosidl_typesupport_cpp.so[0m
+[1.499s] [ 56%] Built target ego_planner__rosidl_typesupport_cpp
+[1.502s] [ 59%] [32m[1mLinking CXX shared library libego_planner__rosidl_typesupport_fastrtps_cpp.so[0m
+[1.522s] [ 61%] [32m[1mLinking CXX shared library libego_planner__rosidl_typesupport_fastrtps_c.so[0m
+[1.532s] [ 63%] [32m[1mLinking CXX shared library libego_planner__rosidl_typesupport_introspection_cpp.so[0m
+[1.544s] [ 63%] Built target ego_planner__rosidl_typesupport_fastrtps_cpp
+[1.557s] [ 63%] Built target ego_planner__rosidl_typesupport_introspection_cpp
+[1.565s] [ 63%] Built target ego_planner__rosidl_typesupport_fastrtps_c
+[1.577s] [ 63%] Built target ego_planner
+[1.589s] [ 65%] [34m[1mGenerating Python code for ROS interfaces[0m
+[1.707s] [ 65%] Built target ego_planner__py
+[1.720s] [ 68%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_generator_py.dir/rosidl_generator_py/ego_planner/msg/_current_pose_s.c.o[0m
+[1.777s] [ 70%] [32m[1mLinking C shared library rosidl_generator_py/ego_planner/libego_planner__rosidl_generator_py.so[0m
+[1.802s] [ 70%] Built target ego_planner__rosidl_generator_py
+[1.815s] [ 75%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ego_planner/_ego_planner_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[1.815s] [ 75%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ego_planner/_ego_planner_s.ep.rosidl_typesupport_c.c.o[0m
+[1.815s] [ 77%] [32mBuilding C object CMakeFiles/ego_planner__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ego_planner/_ego_planner_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[1.869s] [ 79%] [32m[1mLinking C shared library rosidl_generator_py/ego_planner/ego_planner_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[1.873s] [ 81%] [32m[1mLinking C shared library rosidl_generator_py/ego_planner/ego_planner_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[1.880s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/ego_planner/ego_planner_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[1.881s] [ 86%] [32m[1mLinking CXX static library liblocal_map.a[0m
+[1.891s] [ 86%] Built target ego_planner__rosidl_typesupport_c__pyext
+[1.895s] [ 86%] Built target ego_planner__rosidl_typesupport_fastrtps_c__pyext
+[1.901s] [ 86%] Built target ego_planner__rosidl_typesupport_introspection_c__pyext
+[1.901s] [ 86%] Built target local_map
+[1.957s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::BsplineOptimizer::combineCostRebound(const double*, double*, double&, int)[m[K’:
+[1.958s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:1044:62:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kf_turn[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.958s]  1044 |   double f_smoothness = 0, f_distance = 0, f_feasibility = 0,[01;35m[Kf_turn[m[K = 0,f_kappa = 0;
+[1.958s]       |                                                              [01;35m[K^~~~~~[m[K
+[1.959s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:1044:73:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kf_kappa[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.959s]  1044 |   double f_smoothness = 0, f_distance = 0, f_feasibility = 0,f_turn = 0,[01;35m[Kf_kappa[m[K = 0;
+[1.959s]       |                                                                         [01;35m[K^~~~~~~[m[K
+[2.446s] [ 88%] [32m[1mLinking CXX static library libpath_searching.a[0m
+[2.476s] [ 88%] Built target path_searching
+[3.861s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:[m[K In member function ‘[01m[Kstd::vector<std::vector<Eigen::Matrix<double, 2, 1> > > ego_planner::BsplineOptimizer::initControlPoints(Eigen::MatrixXd&, bool)[m[K’:
+[3.861s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:50:16:[m[K [01;35m[Kwarning: [m[K‘[01m[Kout_id[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[3.861s]    50 |     int in_id, [01;35m[Kout_id[m[K;
+[3.861s]       |                [01;35m[K^~~~~~[m[K
+[3.861s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/bspline_optimizer.cpp:50:9:[m[K [01;35m[Kwarning: [m[K‘[01m[Kin_id[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[3.862s]    50 |     int [01;35m[Kin_id[m[K, out_id;
+[3.862s]       |         [01;35m[K^~~~~[m[K
+[4.276s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::UniformBspline::getMeanAndMaxVel(double&, double&)[m[K’:
+[4.276s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:334:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktmp[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[4.276s]   334 |     for (double t = tm; [01;35m[Kt <= tmp[m[K; t += 0.01)
+[4.276s]       |                         [01;35m[K~~^~~~~~[m[K
+[4.276s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:334:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktm[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[4.290s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::UniformBspline::getMeanAndMaxAcc(double&, double&)[m[K’:
+[4.290s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:360:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktmp[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[4.290s]   360 |     for (double t = tm; [01;35m[Kt <= tmp[m[K; t += 0.01)
+[4.290s]       |                         [01;35m[K~~^~~~~~[m[K
+[4.290s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/bspline_opt/src/uniform_bspline.cpp:360:27:[m[K [01;35m[Kwarning: [m[K‘[01m[Ktm[m[K’ may be used uninitialized in this function [[01;35m[K-Wmaybe-uninitialized[m[K]
+[5.445s] [ 90%] [32m[1mLinking CXX static library libbspline_opt.a[0m
+[5.519s] [ 90%] Built target bspline_opt
+[5.532s] [ 93%] [32mBuilding CXX object planner/plan_manage/CMakeFiles/ego_planner_lib.dir/src/planner_interface.cpp.o[0m
+[6.063s] In file included from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/plan_manage/include/plan_manage/planner_interface.h:16[m[K,
+[6.065s]                  from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:1[m[K:
+[6.065s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:[m[K In function ‘[01m[Kstd::ostream& ego_planner::operator<<(std::ostream&, const ego_planner::Bspline_<ContainerAllocator>&)[m[K’:
+[6.065s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:88:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+[6.065s]    88 | [01;35m[K}[m[K
+[6.065s]       | [01;35m[K^[m[K
+[6.081s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:[m[K In member function ‘[01m[Kvoid ego_planner::PlannerInterface::makePlan()[m[K’:
+[6.081s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/planner/plan_manage/src/planner_interface.cpp:184:52:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 2 has type ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >::rep[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K-Wformat=[m[K]
+[6.081s]   184 |         printf("MotionPlanner Total Running Time: [01;35m[K%d[m[K  ms \n", [32m[Kelapsed.count()[m[K);
+[6.081s]       |                                                   [01;35m[K~^[m[K          [32m[K~~~~~~~~~~~~~~~[m[K
+[6.081s]       |                                                    [01;35m[K|[m[K                       [32m[K|[m[K
+[6.081s]       |                                                    [01;35m[Kint[m[K                     [32m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >::rep {aka long int}[m[K
+[6.081s]       |                                                   [32m[K%ld[m[K
+[7.089s] [ 95%] [32m[1mLinking CXX static library libego_planner_lib.a[0m
+[7.117s] [ 95%] Built target ego_planner_lib
+[7.127s] [ 97%] [32mBuilding CXX object CMakeFiles/motion_plan.dir/src/trajectory_publisher.cpp.o[0m
+[8.669s] In file included from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/plan_manage/include/plan_manage/planner_interface.h:16[m[K,
+[8.669s]                  from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/include/trajectory_obstacles_publisher.h:46[m[K,
+[8.669s]                  from [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/src/trajectory_publisher.cpp:6[m[K:
+[8.669s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:[m[K In function ‘[01m[Kstd::ostream& ego_planner::operator<<(std::ostream&, const ego_planner::Bspline_<ContainerAllocator>&)[m[K’:
+[8.669s] [01m[K/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/src/EgoPlanner-ROS2/./planner/include/Bspline.h:88:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
+[8.669s]    88 | [01;35m[K}[m[K
+[8.669s]       | [01;35m[K^[m[K
+[23.242s] [100%] [32m[1mLinking CXX executable motion_plan[0m
+[23.661s] [100%] Built target motion_plan
+[23.667s] Invoked command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner -- -j20 -l20
+[23.674s] Invoking command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner
+[23.677s] -- Install configuration: "Release"
+[23.677s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ament_index/resource_index/rosidl_interfaces/ego_planner
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/rosidl_generator_c__visibility_control.h
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__struct.h
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__type_support.h
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__functions.c
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__functions.h
+[23.678s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/current_pose.h
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/library_path.sh
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/library_path.dsv
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_generator_c.so
+[23.680s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_generator_c.so" to ""
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__rosidl_typesupport_fastrtps_c.h
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_fastrtps_c.so
+[23.680s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_fastrtps_c.so" to ""
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/current_pose.hpp
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/rosidl_generator_cpp__visibility_control.hpp
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__struct.hpp
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__builder.hpp
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__type_support.hpp
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__traits.hpp
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/dds_fastrtps
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__rosidl_typesupport_fastrtps_cpp.hpp
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_fastrtps_cpp.so
+[23.680s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_fastrtps_cpp.so" to ""
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[23.680s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__rosidl_typesupport_introspection_c.h
+[23.680s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__type_support.c
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_introspection_c.so
+[23.681s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_introspection_c.so" to ""
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_c.so
+[23.681s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_c.so" to ""
+[23.681s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner
+[23.681s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg
+[23.681s] -- Up-to-date: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__type_support.cpp
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/include/ego_planner/ego_planner/msg/detail/current_pose__rosidl_typesupport_introspection_cpp.hpp
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_introspection_cpp.so
+[23.681s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_introspection_cpp.so" to ""
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_cpp.so
+[23.681s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_typesupport_cpp.so" to ""
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/pythonpath.sh
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/pythonpath.dsv
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner-0.0.0-py3.10.egg-info
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner-0.0.0-py3.10.egg-info/top_level.txt
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner-0.0.0-py3.10.egg-info/dependency_links.txt
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner-0.0.0-py3.10.egg-info/PKG-INFO
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner-0.0.0-py3.10.egg-info/SOURCES.txt
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/_ego_planner_s.ep.rosidl_typesupport_introspection_c.c
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg/__init__.py
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg/_current_pose.py
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg/_current_pose_s.c
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/_ego_planner_s.ep.rosidl_typesupport_c.c
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/libego_planner__rosidl_generator_py.so
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/__init__.py
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/_ego_planner_s.ep.rosidl_typesupport_fastrtps_c.c
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[23.681s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[23.699s] Listing '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner'...
+[23.699s] Compiling '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/__init__.py'...
+[23.699s] Listing '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg'...
+[23.700s] Compiling '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg/__init__.py'...
+[23.700s] Compiling '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/msg/_current_pose.py'...
+[23.700s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[23.700s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[23.700s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[23.700s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[23.700s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[23.703s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/local/lib/python3.10/dist-packages/ego_planner/ego_planner_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_generator_py.so
+[23.703s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/libego_planner__rosidl_generator_py.so" to ""
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ament_index/resource_index/rust_packages/ego_planner
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/build.rs
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/Cargo.toml
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/src
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/src/msg
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/src/msg/rmw.rs
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/src/lib.rs
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/rust/src/msg.rs
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/msg/CurrentPose.idl
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/msg/CurrentPose.msg
+[23.703s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/ego_planner/motion_plan
+[23.721s] -- Set runtime path of "/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/lib/ego_planner/motion_plan" to ""
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ament_index/resource_index/package_run_dependencies/ego_planner
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ament_index/resource_index/parent_prefix_path/ego_planner
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/ament_prefix_path.sh
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/ament_prefix_path.dsv
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/path.sh
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/environment/path.dsv
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/local_setup.bash
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/local_setup.sh
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/local_setup.zsh
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/local_setup.dsv
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/package.dsv
+[23.721s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ament_index/resource_index/packages/ego_planner
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_generator_cExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_generator_cExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_typesupport_fastrtps_cExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_typesupport_fastrtps_cExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_generator_cppExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_typesupport_fastrtps_cppExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_typesupport_fastrtps_cppExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_introspection_cExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_introspection_cExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_cExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_cExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_introspection_cppExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_introspection_cppExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_cppExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_planner__rosidl_typesupport_cppExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_generator_pyExport.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/export_ego_planner__rosidl_generator_pyExport-release.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/rosidl_cmake-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ament_cmake_export_dependencies-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ament_cmake_export_include_directories-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ament_cmake_export_libraries-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ament_cmake_export_targets-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[23.722s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_plannerConfig.cmake
+[23.723s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/cmake/ego_plannerConfig-version.cmake
+[23.723s] -- Installing: /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/install/ego_planner/share/ego_planner/package.xml
+[23.724s] Invoked command in '/workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /workspace/ros2_rviz_ws/Ego-Planner-2D-ROS2/build/ego_planner

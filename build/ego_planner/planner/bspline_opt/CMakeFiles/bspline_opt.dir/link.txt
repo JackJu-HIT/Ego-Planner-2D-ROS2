@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbspline_opt.a CMakeFiles/bspline_opt.dir/src/uniform_bspline.cpp.o CMakeFiles/bspline_opt.dir/src/bspline_optimizer.cpp.o CMakeFiles/bspline_opt.dir/src/gradient_descent_optimizer.cpp.o
+/usr/bin/ranlib libbspline_opt.a

@@ -1,0 +1,4 @@
+# 当前位置消息：x/y坐标 + 航向角theta（弧度）
+float64 x
+float64 y
+float64 theta  # 绕z轴的旋转角（北偏东为正，范围[-π, π]）
