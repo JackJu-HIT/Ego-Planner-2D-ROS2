@@ -11,12 +11,53 @@
 
 ---
 
-## 📅 更新日志 (Changelog)
+## 📅 更新日志（Changelog）
 
-### [2025-12-10]
-- ✨ **新增功能**：添加 GridMap 膨胀后的障碍物可视化渲染。
-  - **Rviz2 监听话题**：`/visual_local_obstacles`
-- 🐛 **Bug 修复**：修复了 GridMap 在特定边界条件下存在的 Bug。
+### 最新版本：ROS 2 + RViz 交互式运动仿真
+
+基于 **Ego-Planner-2D-ROS2** 整理并扩展的 ROS 2 + RViz 交互式运动仿真工程。
+
+> [!IMPORTANT]
+> 最新功能位于 `develop` 分支，请先切换分支：
+
+```bash
+git switch develop
+```
+
+当前版本不仅包含 Ego Planner 2D 局部轨迹规划节点，还集成了以下功能：
+
+- 简易小车运动仿真
+- RViz 交互式路径设置
+- RViz 交互式障碍物添加
+- 局部轨迹跟踪
+- 规划结果实时可视化
+- Launch 一键启动
+
+通过 Launch 文件可同时启动以下节点：
+
+| 节点 | 功能说明 |
+| --- | --- |
+| `ego_planner/motion_plan` | 二维局部轨迹规划与可视化 |
+| `rviz_car_sim/fake_sim_node` | 简易小车运动仿真与轨迹跟踪 |
+| `rviz2` | 自动加载仓库内置的 RViz 配置 |
+
+---
+
+### 2025-12-10
+
+#### ✨ 新增功能
+
+- 新增 GridMap 膨胀障碍物的 RViz 2 可视化功能。
+- 支持通过以下话题查看局部障碍物及其膨胀结果：
+
+```text
+/visual_local_obstacles
+```
+
+#### 🐛 问题修复
+
+- 修复 GridMap 在特定边界条件下可能出现的异常问题。
+- 提升局部地图在边界区域更新时的稳定性。
 
 ---
 
