@@ -6,6 +6,14 @@
 - `rviz_car_sim/fake_sim_node`：简易小车运动仿真节点
 - `rviz2`：自动加载仓库内的 RViz 配置
 
+## 演示视频
+
+[点击查看 Ego Planner RViz 运动仿真演示](./ego.mp4)
+
+支持 HTML 视频标签的 Markdown 平台也可以直接播放：
+
+<video src="./ego.mp4" controls width="100%"></video>
+
 ## 功能说明
 
 `ego_planner` 接收 RViz 交互输入和仿真小车当前位置，生成全局路径可视化、局部轨迹和障碍物可视化。
@@ -146,3 +154,4 @@ ros2 launch rviz_car_sim bringup.launch.py
 ## 参考
 
 核心规划算法来源于 Ego-Planner 相关工作，本仓库重点整理了 ROS 2 RViz 交互、launch 启动和简易运动仿真流程。
+
