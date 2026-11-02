@@ -21,6 +21,8 @@
 #include "rviz_car_sim/msg/current_pose.hpp"
 #include <tf2/utils.h>
 
+#include "utilize.h"
+
 using namespace std::chrono_literals;
 
 class FakeSimNode : public rclcpp::Node
@@ -56,8 +58,8 @@ public:
         // 3. 定时器 (50Hz)
         timer_ = this->create_wall_timer(50ms, std::bind(&FakeSimNode::loop, this));
 
-        RCLCPP_INFO(this->get_logger(), "简易仿真器启动！");
-        RCLCPP_INFO(this->get_logger(), "等待 /initialpose 初始化位置，或 /visual_local_trajectory 开始运动");
+        SHOWE("简易仿真器启动！");
+        SHOWE("等待 /initialpose 初始化位置，或 /visual_local_trajectory 开始运动");
     }
 
 private:
@@ -94,7 +96,7 @@ private:
         current_w_ = 0.0;
         received_path_.poses.clear(); // 重置后清空旧路径
         
-        RCLCPP_INFO(this->get_logger(), "仿真器位置重置: x=%.2f, y=%.2f", robot_x_, robot_y_);
+        SHOWE("仿真器位置重置: x=" << robot_x_ << ", y=" << robot_y_);
     }
 
     // 接收规划路径
@@ -108,7 +110,7 @@ private:
         received_path_ = *path_msg;
         
         // 可以在这里打印一下调试信息，但不影响物理状态
-        // RCLCPP_INFO(this->get_logger(), "收到新路径，点数: %zu", received_path_.poses.size());
+        // SHOWE("收到新路径，点数: " << received_path_.poses.size());
     }
 
     void update_physics()
@@ -129,7 +131,7 @@ private:
         // msg.x = robot_x_;
         // msg.y = robot_y_;
         // msg.theta = robot_yaw_;
-        std::cout << "[update_physics] pose =" << robot_x_ << "," << robot_y_ << "," << robot_yaw_ << std::endl;
+        SHOWE("[update_physics] pose =" << robot_x_ << "," << robot_y_ << "," << robot_yaw_);
         // cur_pose_publisher_->publish(msg);
         
         auto msg = geometry_msgs::msg::PoseStamped();

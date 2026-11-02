@@ -24,6 +24,13 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 
 add_executable(fake_sim_node src/fake_sim_node.cpp)
+
+# 本包自有头文件目录 (include/utilize.h 等)
+target_include_directories(fake_sim_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
 ament_target_dependencies(fake_sim_node
   rclcpp
   geometry_msgs
@@ -47,6 +54,12 @@ install(DIRECTORY
   launch
   config
   DESTINATION share/${PROJECT_NAME}
+)
+
+# 安装本包自有头文件
+install(DIRECTORY
+  include/
+  DESTINATION include
 )
 
 ament_package()
