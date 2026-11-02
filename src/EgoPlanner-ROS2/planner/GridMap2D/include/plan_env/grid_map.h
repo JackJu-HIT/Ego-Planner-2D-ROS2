@@ -10,6 +10,16 @@
 #include <memory>
 #include <iostream>
 
+// ---- 统一打印宏 ----
+// 本文件自带 SHOW / SHOWE 定义（与 rviz_car_sim/utilize.h 语义一致），
+// 避免 planner 子包反向依赖 rviz_car_sim 造成 colcon 循环依赖。
+#ifndef SHOW
+#define SHOW(x)  std::cout << x;
+#endif
+#ifndef SHOWE
+#define SHOWE(x) std::cout << x << '\n';
+#endif
+
 // 二维栅格地图类（与A*算法配套）
 class GridMap2D {
 private:
@@ -22,7 +32,22 @@ private:
     Eigen::Vector2i world_size_;
     int grid_rows_;
     int grid_cols_;
-    
+
+    // ====================== 仅首次打印控制 ======================
+    // 背景：状态机每进一次循环都会重建栅格地图（resetMap -> setCurPose ->
+    //       setObstacle -> inflate），导致调试信息被反复刷屏。
+    // 方案：以“地图重建轮次”为界，只在第 1 轮输出调试信息。
+    //   map_round_    : 每次 resetMap() 递增，代表第几轮地图重建
+    //   verbose_enabled_: 是否允许输出调试信息（第 1 轮为 true，之后置 false）
+    // 注意：标志位是【对象成员】而非函数内 static，
+    //       因为 GridMap2D 实例在节点生命周期内只创建一次（initEsdfMap），
+    //       成员变量可正确跨状态机循环保持状态，且不依赖调用顺序。
+    unsigned int map_round_ = 0;   // 地图重建轮次计数
+    bool verbose_enabled_ = true;  // 调试信息输出总开关（首轮后关闭）
+
+    // 查询当前是否允许输出调试信息
+    // 规则：仅第 1 轮地图重建（map_round_ <= 1）且总开关未关闭时允许输出
+    bool verbosePrintAllowed() const { return verbose_enabled_ && map_round_ <= 1u; }
 
 
 public:
@@ -44,6 +69,13 @@ public:
     // }
     void resetMap()
     {
+        // 每次 resetMap() 代表进入新一轮地图重建，轮次计数 +1
+        // 第 1 轮允许输出调试信息，第 2 轮起永久关闭调试输出
+        ++map_round_;
+        if (map_round_ > 1u) {
+            verbose_enabled_ = false;
+        }
+
         // 只有在地图已初始化的情况下才重置
         if (grid_rows_ > 0 && grid_cols_ > 0) {
             for (auto& row : original_grid_) {
@@ -52,7 +84,9 @@ public:
             for (auto& row : grid_) {
                 std::fill(row.begin(), row.end(), false);
             }
-            std::cout << "[resetMap] 所有栅格已重置为自由空间。" << std::endl;
+            if (verbosePrintAllowed()) {
+                SHOWE("[resetMap] 所有栅格已重置为自由空间。");
+            }
         } else {
             std::cout << "[resetMap] 警告：地图尚未初始化，无法重置。" << std::endl;
         }

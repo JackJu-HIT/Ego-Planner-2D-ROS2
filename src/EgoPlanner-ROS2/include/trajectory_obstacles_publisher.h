@@ -46,6 +46,8 @@ SOFTWARE.
 #include "planner_interface.h"
 #include "ego_planner/msg/current_pose.hpp"  // 自定义消息头文件
 
+// 注：SHOW / SHOWE 打印宏由 plan_env/grid_map.h 提供（经 planner_interface.h 传递引入）
+
 
 using namespace ego_planner;
 
@@ -139,6 +141,18 @@ private:
     double map_inflate_value_ = 0.5;//0.5;
 
     double theta_ = 0.0;
+
+    // ====================== 仅首次打印控制 ======================
+    // 需求：状态机每循环一次都会刷出一大串调试信息，这里让每个调试打印
+    //       只在第一次出现，之后自动跳过。
+    // 作用域说明：本类是 ROS2 Node，生命周期 = 进程生命周期，
+    //             只会被实例化一次（main() 中 make_shared），
+    //             因此用【成员变量】而非函数内 static 局部变量，
+    //             既能跨回调保持状态，也不会污染同进程内其它实例。
+    bool logged_plan_size_      = false;  // "global_plan_traj_res_.size()  ="
+    bool logged_publish_traj_   = false;  // "发布Ego Planner规划后的局部轨迹"
+    bool logged_traj_size_      = false;  // 发布函数内的 size 打印
+    bool logged_planned_start_  = false;  // "planned start x = ..."
 };
 
 #endif // TRAJECTORY_OBSTACLES_PUBLISHER_H

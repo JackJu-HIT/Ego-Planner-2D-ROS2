@@ -38,15 +38,17 @@ void GridMap2D::setCurPose(double x,double y)
     original_grid_.resize(grid_rows, std::vector<bool>(grid_cols, false));  // 存储原始障碍物
     grid_.resize(grid_rows, std::vector<bool>(grid_cols, false));          // 存储原始+膨胀障碍物
 
-    // 打印初始化信息
-    std::cout << "[GridMap2D] 地图初始化完成：" << std::endl;
-    std::cout << "  - 世界尺寸：" << world_size_.x() << "m × " << world_size_.y() << "m" << std::endl;
-    std::cout << "  - 栅格分辨率：" << resolution_ << "m/栅格" << std::endl;
-    std::cout << "  - 栅格数量：" << grid_cols << "列 × " << grid_rows << "行" << std::endl;
-    std::cout << "  - 世界坐标范围：x∈[" << std::fixed << std::setprecision(2) << origin_.x() << "," 
+    // 打印初始化信息（仅首轮输出，避免状态机循环刷屏）
+    if (verbosePrintAllowed()) {
+        SHOWE("[GridMap2D] 地图初始化完成：");
+        SHOWE("  - 世界尺寸：" << world_size_.x() << "m × " << world_size_.y() << "m");
+        SHOWE("  - 栅格分辨率：" << resolution_ << "m/栅格");
+        SHOWE("  - 栅格数量：" << grid_cols << "列 × " << grid_rows << "行");
+        SHOWE("  - 世界坐标范围：x∈[" << std::fixed << std::setprecision(2) << origin_.x() << "," 
               << origin_.x() + world_size_.x() << "], y∈[" << origin_.y() << "," 
-              << origin_.y() + world_size_.y() << "]" << std::endl;
-    std::cout << "  - 默认膨胀半径：" << inflate_radius_ << "m" << std::endl;
+              << origin_.y() + world_size_.y() << "]");
+        SHOWE("  - 默认膨胀半径：" << inflate_radius_ << "m");
+    }
 
 }
 
@@ -57,7 +59,9 @@ void GridMap2D::resetGrids() {
     for (auto& row : grid_) {
         std::fill(row.begin(), row.end(), false);
     }
-    std::cout << "[resetGrids] 所有栅格已重置为自由空间。" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("[resetGrids] 所有栅格已重置为自由空间。");
+    }
 }
 
 
@@ -76,8 +80,10 @@ void GridMap2D::setObstacle(const Eigen::Vector2i& grid_index, bool is_obstacle)
     // 3. 更新膨胀后网格（初始状态 = 原始网格，膨胀后会叠加膨胀区域）
     grid_[grid_index.y()][grid_index.x()] = is_obstacle;
 
-    std::cout << "[setObstacle] 栅格（" << grid_index.x() << "," << grid_index.y() 
-              << "）设置为" << (is_obstacle ? "障碍物" : "自由空间") << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("[setObstacle] 栅格（" << grid_index.x() << "," << grid_index.y() 
+              << "）设置为" << (is_obstacle ? "障碍物" : "自由空间"));
+    }
 }
 
 // 原始接口：检查点是否为【原始障碍物】（不包含膨胀区域）
@@ -155,11 +161,16 @@ void GridMap2D::inflateObstacles(double radius) {
         return;
     }
 
-    std::cout << "\n[inflateObstacles] 开始膨胀障碍物，半径：" << radius << "m" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("");
+        SHOWE("[inflateObstacles] 开始膨胀障碍物，半径：" << radius << "m");
+    }
 
     // 2. 计算膨胀半径对应的栅格数（向上取整，确保覆盖完整半径）
     int inflate_grid_num = static_cast<int>(std::ceil(radius / resolution_));
-    std::cout << "  - 膨胀半径对应栅格数：" << inflate_grid_num << "（" << radius << "m / " << resolution_ << "m/栅格）" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("  - 膨胀半径对应栅格数：" << inflate_grid_num << "（" << radius << "m / " << resolution_ << "m/栅格）");
+    }
 
     // 3. 收集所有原始障碍物的栅格索引（避免重复膨胀）
     std::vector<Eigen::Vector2i> original_obstacle_indices;
@@ -172,10 +183,14 @@ void GridMap2D::inflateObstacles(double radius) {
     }
 
     if (original_obstacle_indices.empty()) {
-        std::cout << "[inflateObstacles] 无原始障碍物，无需膨胀" << std::endl;
+        if (verbosePrintAllowed()) {
+            SHOWE("[inflateObstacles] 无原始障碍物，无需膨胀");
+        }
         return;
     }
-    std::cout << "  - 原始障碍物数量：" << original_obstacle_indices.size() << "个栅格" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("  - 原始障碍物数量：" << original_obstacle_indices.size() << "个栅格");
+    }
 
     // 4. 重置膨胀后网格（先恢复为原始障碍物状态，再叠加膨胀区域）
     grid_ = original_grid_;
@@ -215,9 +230,11 @@ void GridMap2D::inflateObstacles(double radius) {
         }
     }
 
-    std::cout << "[inflateObstacles] 障碍物膨胀完成！" << std::endl;
-    std::cout << "  - 膨胀栅格数量：" << inflated_count << "个" << std::endl;
-    std::cout << "  - 膨胀后总占用栅格数：" << (original_obstacle_indices.size() + inflated_count) << "个" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("[inflateObstacles] 障碍物膨胀完成！");
+        SHOWE("  - 膨胀栅格数量：" << inflated_count << "个");
+        SHOWE("  - 膨胀后总占用栅格数：" << (original_obstacle_indices.size() + inflated_count) << "个");
+    }
 }
 
 // // 新增接口：设置默认膨胀半径（支持动态调整）
@@ -232,7 +249,10 @@ void GridMap2D::setInflateRadius(double radius) {
 
 // 新增接口：使用默认膨胀半径膨胀障碍物（无参调用）
 void GridMap2D::inflate() {
-    std::cout << "\n[inflate] 开始使用默认半径膨胀障碍物" << std::endl;
+    if (verbosePrintAllowed()) {
+        SHOWE("");
+        SHOWE("[inflate] 开始使用默认半径膨胀障碍物");
+    }
     inflateObstacles(inflate_radius_);  // 复用带参膨胀逻辑
 }
 

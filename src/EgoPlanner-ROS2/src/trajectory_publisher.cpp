@@ -274,7 +274,10 @@ void TrajectoryAndObstaclesPublisher::publish_and_plan()
         ego_planner_->setObstacles(local_obstacles_res);
         // 3. 执行规划
         // if(global_plan_traj_res_.size() > 5)
-        std::cout << "global_plan_traj_res_.size()  =" << global_plan_traj_res_.size()  << std::endl;
+        if (!logged_plan_size_) {
+            logged_plan_size_ = true;
+            SHOWE("global_plan_traj_res_.size()  =" << global_plan_traj_res_.size());
+        }
         // if(global_plan_traj_res_.size() > 5 && !global_plan_traj_.empty())
         {
             ego_planner_->makePlan();
@@ -405,13 +408,22 @@ void TrajectoryAndObstaclesPublisher::publish_a_star_path()
 // 发布Ego Planner规划后的局部轨迹
 void TrajectoryAndObstaclesPublisher::publish_planned_trajectory()
 {
-    std::cout << "发布Ego Planner规划后的局部轨迹" << std::endl;
+    if (!logged_publish_traj_) {
+        logged_publish_traj_ = true;
+        SHOWE("发布Ego Planner规划后的局部轨迹");
+    }
     planned_traj.clear();
-    std::cout << "global_plan_traj_res_.size()  =" << global_plan_traj_res_.size()  << std::endl;
+    if (!logged_traj_size_) {
+        logged_traj_size_ = true;
+        SHOWE("global_plan_traj_res_.size()  =" << global_plan_traj_res_.size());
+    }
     // if(global_plan_traj_res_.size() > 5)
     {
         ego_planner_->getLocalPlanTrajResults(planned_traj);
-        std::cout << "planned start x =  " << planned_traj[0].x << " , start y =" <<  planned_traj[0].y << std::endl;
+        if (!logged_planned_start_ && !planned_traj.empty()) {
+            logged_planned_start_ = true;
+            SHOWE("planned start x =  " << planned_traj[0].x << " , start y =" <<  planned_traj[0].y);
+        }
     }
     // else
     // { 
