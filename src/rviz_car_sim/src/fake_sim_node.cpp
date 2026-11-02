@@ -4,6 +4,7 @@
 #include <vector>
 #include <mutex>
 #include <algorithm>
+#include <limits>
 
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
@@ -94,6 +95,7 @@ private:
 
         current_v_ = 0.0;
         current_w_ = 0.0;
+        omega_filter_.reset(0.0);   // 复位角速度滤波状态
         received_path_.poses.clear(); // 重置后清空旧路径
         
         SHOWE("仿真器位置重置: x=" << robot_x_ << ", y=" << robot_y_);
@@ -122,9 +124,8 @@ private:
         robot_y_ += current_v_ * std::sin(robot_yaw_) * dt;
         robot_yaw_ += current_w_ * dt;
 
-        // 规范化角度
-        if (robot_yaw_ > M_PI) robot_yaw_ -= 2 * M_PI;
-        else if (robot_yaw_ < -M_PI) robot_yaw_ += 2 * M_PI;
+        // 规范化角度 -> (-pi, pi]
+        robot_yaw_ = MathTool::normalizeAngle(robot_yaw_);
 
         // // 发布当前位置给 Planner
         // auto msg = rviz_car_sim::msg::CurrentPose();
@@ -223,15 +224,18 @@ private:
         global_cloud.header.frame_id = "map";
         global_cloud.header.stamp = local_cloud.header.stamp;
 
-        double cos_t = std::cos(robot_yaw_);
-        double sin_t = std::sin(robot_yaw_);
+        const MathTool::Vec2 robot_origin(robot_x_, robot_y_);
 
         for (const auto& p_local : local_cloud.points) {
-            geometry_msgs::msg::Point32 p_global;
-            p_global.x = robot_x_ + p_local.x * cos_t - p_local.y * sin_t;
-            p_global.y = robot_y_ + p_local.x * sin_t + p_local.y * cos_t;
-            p_global.z = p_local.z;
-            global_cloud.points.push_back(p_global);
+            // local(base_link) -> global(map): 先旋转 yaw, 再平移到车体位置
+            const MathTool::Vec2 p_global =
+                MathTool::transformLocalToGlobal(MathTool::Vec2(p_local.x, p_local.y),
+                                                robot_yaw_, robot_origin);
+            geometry_msgs::msg::Point32 msg_p;
+            msg_p.x = p_global.x;
+            msg_p.y = p_global.y;
+            msg_p.z = p_local.z;
+            global_cloud.points.push_back(msg_p);
         }
         global_obstacle_pub_->publish(global_cloud);
     }
@@ -246,35 +250,38 @@ private:
         }
 
         // 1. 寻找路径上距离当前位置最近的点 (Match Point)
-        double min_dist = 1e9;
+        const MathTool::Vec2 robot_pos(robot_x_, robot_y_);
+        double min_dist_sq = std::numeric_limits<double>::max();
         size_t closest_idx = 0;
         for (size_t i = 0; i < received_path_.poses.size(); ++i) {
-            double dx = received_path_.poses[i].pose.position.x - robot_x_;
-            double dy = received_path_.poses[i].pose.position.y - robot_y_;
-            double dist = std::sqrt(dx*dx + dy*dy);
-            if (dist < min_dist) {
-                min_dist = dist;
+            const MathTool::Vec2 p(received_path_.poses[i].pose.position.x,
+                                   received_path_.poses[i].pose.position.y);
+            // 仅需比较大小, 用距离平方避免逐点开方
+            const double dist_sq = MathTool::dist2(p, robot_pos);
+            if (dist_sq < min_dist_sq) {
+                min_dist_sq = dist_sq;
                 closest_idx = i;
             }
         }
 
         // 2. 寻找前瞻点 (Lookahead Point)，距离最近点 Ld 远处
         double lookahead_dist = 1.0; // 前瞻距离 0.3m
+        const MathTool::Vec2 match_pos(received_path_.poses[closest_idx].pose.position.x,
+                                        received_path_.poses[closest_idx].pose.position.y);
         size_t target_idx = closest_idx;
         for (size_t i = closest_idx; i < received_path_.poses.size(); ++i) {
-            double dx = received_path_.poses[i].pose.position.x - received_path_.poses[closest_idx].pose.position.x;
-            double dy = received_path_.poses[i].pose.position.y - received_path_.poses[closest_idx].pose.position.y;
-            if (std::sqrt(dx*dx + dy*dy) > lookahead_dist) {
+            const MathTool::Vec2 p(received_path_.poses[i].pose.position.x,
+                                   received_path_.poses[i].pose.position.y);
+            if (MathTool::dist(p, match_pos) > lookahead_dist) {
                 target_idx = i;
                 break;
             }
         }
 
         // 如果已经接近终点
-        double dist_to_goal = std::sqrt(
-            std::pow(received_path_.poses.back().pose.position.x - robot_x_, 2) +
-            std::pow(received_path_.poses.back().pose.position.y - robot_y_, 2)
-        );
+        const MathTool::Vec2 goal(received_path_.poses.back().pose.position.x,
+                                  received_path_.poses.back().pose.position.y);
+        const double dist_to_goal = MathTool::dist(goal, robot_pos);
 
         if (dist_to_goal < 0.1 && closest_idx == received_path_.poses.size() - 1) {
             current_v_ = 0.0;
@@ -288,20 +295,24 @@ private:
         double ty = target_pose.pose.position.y;
         
         double alpha = std::atan2(ty - robot_y_, tx - robot_x_) - robot_yaw_;
-        // Normalize alpha
-        while(alpha > M_PI) alpha -= 2*M_PI;
-        while(alpha < -M_PI) alpha += 2*M_PI;
+        // Normalize alpha -> (-pi, pi]
+        alpha = MathTool::normalizeAngle(alpha);
 
         current_v_ = 1.0;//0.5; // 固定线速度
-        // Pure pursuit curvature: 2*sin(alpha)/Ld
-        // W = v * curvature
-        // 简单 P 控制：
-        current_w_ = 1.0 * alpha; // 增益需调试
+        // 限制 (先限幅 v, 保证后续曲率计算用的 v 与实际行驶速度一致)
+        current_v_ = MathTool::clamp(current_v_, 0.0, 0.5);
+
+        // ---- 新控制律: 标准 Pure Pursuit 曲率模型 ----
+        // kappa = 2*sin(alpha)/Ld ; w = v * kappa
+        const double omega_raw = MathTool::purePursuitOmega(current_v_, alpha, lookahead_dist);
+        // 一阶低通滤波, 抑制 omega 抖动
+        current_w_ = omega_filter_.smooth(omega_raw, 0.3);
+
+        // ---- 旧控制律 (P 控制, 保留备查, 效果不好时解注释下面一行并注释上面三行) ----
+        // current_w_ = 1.0 * alpha; // 增益需调试
 
         // 限制
-        if (current_v_ > 0.5) current_v_ = 0.5;
-        if (current_w_ > 1.0) current_w_ = 1.0;
-        if (current_w_ < -1.0) current_w_ = -1.0;
+        current_w_ = MathTool::clamp(current_w_, -1.0, 1.0);
     }
 
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr car_marker_pub_;
@@ -324,6 +335,9 @@ private:
 
     nav_msgs::msg::Path received_path_;
     std::mutex path_mutex_;
+
+    // 角速度低通滤波器 (保留跨调用状态)
+    MathTool omega_filter_;
 };
 
 int main(int argc, char **argv)
